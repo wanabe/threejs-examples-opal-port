@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+require "open-uri"
+
+Dir.chdir File.dirname(__FILE__) + "/.."
+
+pattern = /^( *<script src=")((?:https?:)?\/\/.*?\/)([^\/]*\.js)("><\/script>)$/
+Dir.glob "./**/*.html" do |path|
+  buffer = ""
+  open(path) do |f|
+    f.each_line do |line|
+      line.sub!(pattern) do
+        uri = $2 + $3
+        uri = "http:" + uri if uri[0] == "/"
+        puts "caching #{uri}"
+        open("./vendor/javascript/" + $3, "w") do |w|
+          w.write open(uri, &:read)
+        end
+        
+        $1 + "vendor/javascript/" + $3 + $4
+      end
+      buffer << line
+    end
+  end
+
+  File.write(path, buffer)
+end
