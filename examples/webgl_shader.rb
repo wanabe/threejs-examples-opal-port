@@ -59,11 +59,15 @@ class MyApp < App
     mesh = THREE::Mesh.new geometry, material
     @scene.add mesh
 
+    @stats = Stats.new
+    @container << @stats.dom.to_n
+
     @sensor = ResizeSensor.new(@container, method("on_resize"))
   end
 
   def render
     @uniforms.time.value += 0.05
+    @stats.update
   end
 
   def on_resize
