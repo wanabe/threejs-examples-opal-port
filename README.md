@@ -21,8 +21,8 @@ The MIT License.
 * three.js r76
   * MIT License (https://github.com/mrdoob/three.js/blob/r76/LICENSE )
   * Copyright (c) 2010-2016 three.js authors
-* ResizeSensor.js (part of CSS Element Queries 0.3.2)
-  * MIT License (https://github.com/marcj/css-element-queries/blob/0.3.2/LICENSE )
+* ResizeSensor.js rev 6c125e7 (part of CSS Element Queries)
+  * MIT License (https://github.com/marcj/css-element-queries/blob/6c125e7/LICENSE )
   * Copyright (c) 2013 Marc J. Schmidt
 * stats.js r16
   * MIT License (https://github.com/mrdoob/stats.js/blob/r16/LICENSE )
