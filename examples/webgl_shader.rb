@@ -39,11 +39,6 @@ class MyApp < App
     @margin = 10
     super
 
-    @container.on :click do |event|
-      @running = !@running
-      animate if @running
-    end
-
     @camera.position.z = 1
     geometry = THREE::PlaneGeometry.new(2, 2)
     vertex_shader = MyVertexShader.new
